@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import {
     Table,
     TableBody,
@@ -8,7 +9,12 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-import Link from 'next/link'
+  import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover"
+
 import { Button } from '@/components/ui/button'
 type ReturnType = {
     courses:[
@@ -16,6 +22,7 @@ type ReturnType = {
     ],
     status: string
 }
+import CourseDeleteButton from '../components/CourseDeleteButton'
   
 type Course = {
     course_id: number,
@@ -30,8 +37,15 @@ const CoursesPage = async () => {
             console.log('error')
             return
         }
+        
 
         const courses: Course[] = returnType.courses
+
+        console.log(courses)
+        
+
+
+       
 
     return (
         <main className='h-[screen-26] md:h-[screen-20] w-screen pt-26  md:p-20 relative'>
@@ -46,7 +60,7 @@ const CoursesPage = async () => {
                     <TableRow>
                     <TableHead className="w-auto">ID</TableHead>
                     <TableHead className="w-auto">Name</TableHead>
-                    <TableHead className="w-auto">Action</TableHead>
+                    <TableHead className="w-auto">Delete</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -54,9 +68,15 @@ const CoursesPage = async () => {
                         courses?.map((course:Course) => {
                             return (
                                 <TableRow key={course.course_id} className='cursor-pointer'>
-                                    <TableCell className="font-medium">{course.course_id}</TableCell>
+                                    <TableCell className="font-medium">
+                                        <Link href={`/courses/${course.course_id}/edit`}>
+                                            {course.course_id}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell>{course.course_name}</TableCell>
-                                    <TableCell className="text-right">Edit</TableCell>
+                                    <TableCell>
+                                        <CourseDeleteButton id={course.course_id}/>
+                                    </TableCell>
                                 </TableRow>
                             )
                         })

@@ -8,6 +8,8 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
+
+  
 const StudentPage = async () => {
         const response = await fetch('http://127.0.0.1:5000/courses')
         const students:any[] = await response.json()

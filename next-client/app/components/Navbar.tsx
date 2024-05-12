@@ -34,13 +34,6 @@ const Navbar = () => {
                         <p className={`text-sm font-semibold ${pathname.includes("/courses") ? 'text-green-500' :'hover:text-green-400'}`}>Courses</p>
                     </Link>
                 </div>
-                <form className='w-auto h-full flex items-center justify-center gap-1 md:gap-5 relative' onSubmit={(e) => {
-                    e.preventDefault();
-                    console.log(search)
-                }}>
-                    <Input placeholder={`Search ${pathname.includes("/students") ? 'Students' :'Courses'}`} className='w-64' onChange={(e)=>{setSearch(e.target.value)}}/>
-                    <Button type='submit' className='bg-green-500 hover:bg-green-400 duration-300'>Search</Button>
-                </form>
             </div>
         </nav>
     )
