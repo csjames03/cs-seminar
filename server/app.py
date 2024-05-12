@@ -97,6 +97,7 @@ def delete_course(course_id):
 def get_students():
     try:
         students =spcall('get_students', param=None)[0][0]
+        (students)
         return jsonify({"status": "ok",
                         'Message': students})
     except Exception as e:

@@ -57,15 +57,16 @@ const EditCourseForm  = ({course_id, course_name}:{course_id: number, course_nam
             setLoading(false)
             return
         }
-        setTimeout(() => {
-            router.push('/courses')
-        }, 1500)
-
         toast({
             variant: "default",
             title: "Success",
             description: "Course Edited successfully",
         })
+
+        setTimeout(() => {
+            router.push('/courses')
+        }, 1500)
+        
         setLoading(false)
 
     }

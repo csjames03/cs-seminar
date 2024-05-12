@@ -9,11 +9,6 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-  } from "@/components/ui/popover"
 
 import { Button } from '@/components/ui/button'
 type ReturnType = {
